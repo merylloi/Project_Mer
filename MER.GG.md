@@ -1,3 +1,4 @@
+```
 local player = game.Players.LocalPlayer
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
@@ -135,3 +136,4 @@ Tab:AddColorpicker({
 
 ColorPicker:Set(Color3.fromRGB(255,255,255))
 OrionLib:Init()
+```
