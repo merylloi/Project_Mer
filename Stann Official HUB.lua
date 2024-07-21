@@ -1,4 +1,3 @@
-```
 local player = game.Players.LocalPlayer
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({
@@ -118,4 +117,3 @@ Tab:AddButton({
         })
     end
 })
-```
