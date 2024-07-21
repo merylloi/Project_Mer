@@ -1,4 +1,3 @@
-```
 local player = game.Players.LocalPlayer
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({
@@ -34,7 +33,7 @@ local noclipEnabled = false
 -- Function to enable/disable noclip
 local function toggleNoclip()
     if noclipEnabled then
-        -- Enable noclip
+        
         local function onStepped()
             if player.Character then
                 for _, v in pairs(player.Character:GetDescendants()) do
@@ -45,10 +44,10 @@ local function toggleNoclip()
             end
         end
 
-        -- Start a loop to continuously disable collision
+        
         game:GetService("RunService").Stepped:Connect(onStepped)
     else
-        -- Disable noclip
+        
         if player.Character then
             for _, v in pairs(player.Character:GetDescendants()) do
                 if v:IsA("BasePart") then
@@ -118,4 +117,3 @@ Tab:AddButton({
         })
     end
 })
-```
