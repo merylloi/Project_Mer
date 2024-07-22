@@ -1,4 +1,3 @@
--- LIBRARY 
 local player = game.Players.LocalPlayer
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "MER.GG HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "PROJECT_MER"})
@@ -34,5 +33,9 @@ Tab:AddToggle({
 
 
 
-end
+
+
+
+
+
 OrionLib:Init()
