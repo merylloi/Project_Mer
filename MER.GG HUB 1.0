@@ -1,25 +1,57 @@
 local player = game.Players.LocalPlayer 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))() 
 local Window = OrionLib:MakeWindow({
-    Name = "MER.GG HUB", 
+    Name = "Example Hub (Rename This!)", 
     HidePremium = false, 
     SaveConfig = true, 
-    ConfigFolder = "Project_Mer"
+    ConfigFolder = "OrionTest",
+    IntroEnabled = false,
+    Icon = "rbxassetid://4483345998",
+    CloseCallback = function()
+        print("Window closed!")
+    end,
+    Color = Color3.fromRGB(255, 0, 0),
+    Background = "rbxassetid://2151741365", -- You can replace this with a gradient image asset ID
+    BackgroundColor = Color3.fromRGB(255, 0, 0),
+    BorderColor = Color3.fromRGB(200, 0, 0)
 })
 
--- TAB 
+--[[
+    Name = - The name of the UI.
+    HidePremium = - Whether or not the user details shows Premium status or not.
+    SaveConfig = - Toggles the config saving in the UI.
+    ConfigFolder = - The name of the folder where the configs are saved.
+    IntroEnabled = false - Whether or not to show the intro animation.
+    IntroText = - Text to show in the intro animation.
+    IntroIcon = - URL to the image you want to use in the intro animation.
+    Icon = - URL to the image you want displayed on the window.
+    CloseCallback = - Function to execute when the window is closed.
+    Color = - The main color of the UI.
+    Background = - The background image of the UI.
+    BackgroundColor = - The background color of the UI.
+    BorderColor = - The border color of the UI.
+]]
+
 local Tab = Window:MakeTab({
     Name = "Tab 1",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
--- SECTION
+--[[
+    Name = - The name of the tab.
+    Icon = - The icon of the tab.
+    PremiumOnly = - Makes the tab accessible to Sirus Premium users only.
+]]
+
 local Section = Tab:AddSection({
     Name = "LocalPlayer"
 })
 
--- NOTIFICATION 
+--[[
+    Name = - The name of the section.
+]]
+
 OrionLib:MakeNotification({
     Name = "Welcome!",
     Content = "Welcome to my hub!",
@@ -27,11 +59,66 @@ OrionLib:MakeNotification({
     Time = 5
 })
 
--- TOGGLES 
+--[[
+    Title = - The title of the notification.
+    Content = - The content of the notification.
+    Image = - The icon of the notification.
+    Time = - The duration of the notification.
+]]
+
+-- Toggle for High Speed
 Tab:AddToggle({
-	Name = "Walk Speed",
-	Default = false,
-	Callback = function
-		player.Character.Humanoid.WalkSpeed = 60
-	end    
+    Name = "High Speed",
+    Default = false,
+    Callback = function(value)
+        if value then
+            player.Character.Humanoid.WalkSpeed = 500
+        else
+            player.Character.Humanoid.WalkSpeed = 16 -- Default walk speed
+        end
+    end
 })
+
+--[[
+    Name = - The name of the toggle.
+    Default = - The default state of the toggle.
+    Callback = - The function to execute when the toggle is changed.
+]]
+
+-- Toggle for High Jumppower
+Tab:AddToggle({
+    Name = "High Jumppower",
+    Default = false,
+    Callback = function(value)
+        if value then
+            player.Character.Humanoid.JumpPower = 100
+        else
+            player.Character.Humanoid.JumpPower = 50 -- Default jump power
+        end
+    end
+})
+
+--[[
+    Name = - The name of the toggle.
+    Default = - The default state of the toggle.
+    Callback = - The function to execute when the toggle is changed.
+]]
+
+-- Toggle for Low Gravity
+Tab:AddToggle({
+    Name = "Low Gravity",
+    Default = false,
+    Callback = function(value)
+        if value then
+            game.Workspace.Gravity = 10
+        else
+            game.Workspace.Gravity = 196.2 -- Default gravity
+        end
+    end
+})
+
+--[[
+    Name = - The name of the toggle.
+    Default = - The default state of the toggle.
+    Callback = - The function to execute when the toggle is changed.
+]]
