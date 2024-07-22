@@ -1,0 +1,38 @@
+-- LIBRARY 
+local player = game.Players.LocalPlayer
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "MER.GG HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "PROJECT_MER"})
+
+
+-- TAB
+local Tab = Window:MakeTab({
+	Name = "USER",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- NOTIFIER
+OrionLib:MakeNotification({
+	Name = "MER.GG!",
+	Content = "Developed by MER.GG",
+	Image = "rbxassetid://4483345998",
+	Time = 8
+})
+
+-- TOGGLES 
+-- WALK SPEED TOGGLE
+Tab:AddToggle({
+	Name = "Walk Speed",
+	Default = false,
+	Callback = function(Value)
+		player.Character.Humanoid.WalkSpeed = walkSpeedEnabled
+	end    
+})
+
+
+
+
+
+
+end
+OrionLib:Init()
