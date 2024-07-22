@@ -16,22 +16,6 @@ local Window = OrionLib:MakeWindow({
     BorderColor = Color3.fromRGB(200, 0, 0)
 })
 
---[[
-    Name = - The name of the UI.
-    HidePremium = - Whether or not the user details shows Premium status or not.
-    SaveConfig = - Toggles the config saving in the UI.
-    ConfigFolder = - The name of the folder where the configs are saved.
-    IntroEnabled = false - Whether or not to show the intro animation.
-    IntroText = - Text to show in the intro animation.
-    IntroIcon = - URL to the image you want to use in the intro animation.
-    Icon = - URL to the image you want displayed on the window.
-    CloseCallback = - Function to execute when the window is closed.
-    Color = - The main color of the UI.
-    Background = - The background image of the UI.
-    BackgroundColor = - The background color of the UI.
-    BorderColor = - The border color of the UI.
-]]
-
 local Tab = Window:MakeTab({
     Name = "Tab 1",
     Icon = "rbxassetid://4483345998",
@@ -42,14 +26,12 @@ local Section = Tab:AddSection({
     Name = "LocalPlayer"
 })
 
-
 OrionLib:MakeNotification({
     Name = "Welcome!",
     Content = "Welcome to my hub!",
     Image = "rbxassetid://4483345998",
     Time = 5
 })
-
 
 -- Toggle for High Speed
 Tab:AddToggle({
@@ -86,6 +68,49 @@ Tab:AddToggle({
             game.Workspace.Gravity = 10
         else
             game.Workspace.Gravity = 196.2 -- Default gravity
+        end
+    end
+})
+
+-- Toggle for No Clip
+local noclip = false
+local function NoClip()
+    while noclip do
+        for _, child in pairs(player.Character:GetDescendants()) do
+            if child:IsA("BasePart") and child.CanCollide then
+                child.CanCollide = false
+            end
+        end
+        game:GetService("RunService").Stepped:Wait()
+    end
+end
+
+Tab:AddToggle({
+    Name = "No Clip",
+    Default = false,
+    Callback = function(value)
+        noclip = value
+        if noclip then
+            game:GetService("RunService").Stepped:Connect(NoClip)
+        end
+    end
+})
+
+-- Toggle for Infinite Jump
+local infiniteJumpEnabled = false
+local function InfiniteJump()
+    if infiniteJumpEnabled then
+        player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    end
+end
+
+Tab:AddToggle({
+    Name = "Infinite Jump",
+    Default = false,
+    Callback = function(value)
+        infiniteJumpEnabled = value
+        if infiniteJumpEnabled then
+            game:GetService("UserInputService").JumpRequest:Connect(InfiniteJump)
         end
     end
 })
