@@ -4,7 +4,7 @@ local Window = OrionLib:MakeWindow({
     Name = "MER HUB V2", 
     HidePremium = false, 
     SaveConfig = true, 
-    ConfigFolder = "OrionTest",
+    ConfigFolder = "Project-Mer",
     IntroEnabled = false,
     Icon = "rbxassetid://4483345998",
     CloseCallback = function()
@@ -17,7 +17,7 @@ local Window = OrionLib:MakeWindow({
 })
 
 local Tab = Window:MakeTab({
-    Name = "Tab 1",
+    Name = "Player",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
@@ -42,19 +42,6 @@ Tab:AddToggle({
             player.Character.Humanoid.WalkSpeed = 100
         else
             player.Character.Humanoid.WalkSpeed = 16 -- Default walk speed
-        end
-    end
-})
-
--- Toggle for High Jumppower
-Tab:AddToggle({
-    Name = "High Jumppower",
-    Default = false,
-    Callback = function(value)
-        if value then
-            player.Character.Humanoid.JumpPower = 5000
-        else
-            player.Character.Humanoid.JumpPower = 50 -- Default jump power
         end
     end
 })
@@ -114,3 +101,5 @@ Tab:AddToggle({
         end
     end
 })
+
+OrionLib:Init()
