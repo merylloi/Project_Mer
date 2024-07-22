@@ -1,10 +1,10 @@
 local player = game.Players.LocalPlayer 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))() 
 local Window = OrionLib:MakeWindow({
-    Name = "MER HUB V2", 
+    Name = "MER HUB v1.2", 
     HidePremium = false, 
     SaveConfig = true, 
-    ConfigFolder = "Project-Mer",
+    ConfigFolder = "Project_Mer",
     IntroEnabled = false,
     Icon = "rbxassetid://4483345998",
     CloseCallback = function()
@@ -27,8 +27,8 @@ local Section = Tab:AddSection({
 })
 
 OrionLib:MakeNotification({
-    Name = "Welcome!",
-    Content = "Welcome to my hub!",
+    Name = "Developed by MER.GG",
+    Content = "Welcome!!!",
     Image = "rbxassetid://4483345998",
     Time = 5
 })
