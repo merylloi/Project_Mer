@@ -1,7 +1,7 @@
 local player = game.Players.LocalPlayer 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))() 
 local Window = OrionLib:MakeWindow({
-    Name = "Example Hub (Rename This!)", 
+    Name = "MER HUB V2", 
     HidePremium = false, 
     SaveConfig = true, 
     ConfigFolder = "OrionTest",
@@ -38,19 +38,10 @@ local Tab = Window:MakeTab({
     PremiumOnly = false
 })
 
---[[
-    Name = - The name of the tab.
-    Icon = - The icon of the tab.
-    PremiumOnly = - Makes the tab accessible to Sirus Premium users only.
-]]
-
 local Section = Tab:AddSection({
     Name = "LocalPlayer"
 })
 
---[[
-    Name = - The name of the section.
-]]
 
 OrionLib:MakeNotification({
     Name = "Welcome!",
@@ -59,12 +50,6 @@ OrionLib:MakeNotification({
     Time = 5
 })
 
---[[
-    Title = - The title of the notification.
-    Content = - The content of the notification.
-    Image = - The icon of the notification.
-    Time = - The duration of the notification.
-]]
 
 -- Toggle for High Speed
 Tab:AddToggle({
@@ -72,18 +57,12 @@ Tab:AddToggle({
     Default = false,
     Callback = function(value)
         if value then
-            player.Character.Humanoid.WalkSpeed = 500
+            player.Character.Humanoid.WalkSpeed = 100
         else
             player.Character.Humanoid.WalkSpeed = 16 -- Default walk speed
         end
     end
 })
-
---[[
-    Name = - The name of the toggle.
-    Default = - The default state of the toggle.
-    Callback = - The function to execute when the toggle is changed.
-]]
 
 -- Toggle for High Jumppower
 Tab:AddToggle({
@@ -91,18 +70,12 @@ Tab:AddToggle({
     Default = false,
     Callback = function(value)
         if value then
-            player.Character.Humanoid.JumpPower = 100
+            player.Character.Humanoid.JumpPower = 5000
         else
             player.Character.Humanoid.JumpPower = 50 -- Default jump power
         end
     end
 })
-
---[[
-    Name = - The name of the toggle.
-    Default = - The default state of the toggle.
-    Callback = - The function to execute when the toggle is changed.
-]]
 
 -- Toggle for Low Gravity
 Tab:AddToggle({
@@ -116,9 +89,3 @@ Tab:AddToggle({
         end
     end
 })
-
---[[
-    Name = - The name of the toggle.
-    Default = - The default state of the toggle.
-    Callback = - The function to execute when the toggle is changed.
-]]
